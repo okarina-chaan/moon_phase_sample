@@ -1,0 +1,27 @@
+<h1>月星座診断</h1>
+
+<%= form_with url: moon_signs_path, local: true do |f| %>
+  <div>
+    <%= f.label :birth_date, "生年月日" %>
+    <%= f.date_field :birth_date, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :birth_time, "出生時間（任意）" %>
+    <%= f.time_field :birth_time %>
+  </div>
+
+  <div>
+    <%= f.label :prefecture, "生誕地（都道府県）" %>
+    <%= f.select :prefecture, Prefecture::LIST, include_blank: "選択してください" %>
+  </div>
+
+  <%= f.submit "診断する" %>
+<% end %>
+
+<% if @moon_sign.present? %>
+  <h2>診断結果</h2>
+  <p>あなたの月星座は<strong><%= @moon_sign %></strong>です。</p>
+  <p><%= @message %></p>
+<%= link_to "Xで共有", @share_url, target: "_blank", rel: "noopener" %>
+<% end %>

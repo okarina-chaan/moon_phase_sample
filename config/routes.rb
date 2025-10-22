@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get "home/index"
   get "moons/index"
   get "moons/show"
+
+  get "moon_signs/new"
+  resources :moon_signs, only: [:new, :create]
 end
