@@ -1,0 +1,10 @@
+<h1>今日の月相 API版</h1>
+
+<% if @moon %>
+  <p>日付: <%= @moon[:date].strftime('%Y-%m-%d') %></p>
+  <p>月相角度: <%= @moon[:moon_phase_angle].round(2) %>°</p>
+  <p>月の形: <%= @moon[:moon_phase_name] %> <%= @moon[:moon_phase_emoji] %></p>
+<% else %>
+  <p>月の情報を取得できませんでした。</p>
+<% end %>
+
