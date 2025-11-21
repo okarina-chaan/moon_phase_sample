@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "home/index"
   get "moons/index"
   get "moons/show"
+  get "/pages/*id" => 'high_voltage/pages#show', as: :page
 
   get "moon_signs/new"
   resources :moon_signs, only: [:new, :create]
